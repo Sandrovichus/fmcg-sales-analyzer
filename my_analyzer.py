@@ -23,6 +23,9 @@ with open('report.csv', mode='w', encoding='cp1251', newline='') as f:
         status = 'Обычный'
         if total > 30000:
             status = 'VIP'
-        writer.writerow([client, round(total, 2), status])        
+        writer.writerow([client, round(total, 2), status]) 
+
+average_revenue = total_revenue / len(client_totals)
+print(f'Средняя выручка на клиента: {average_revenue:.2f} рублей.')     
       
 
