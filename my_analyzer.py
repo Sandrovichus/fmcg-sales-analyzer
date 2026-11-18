@@ -23,7 +23,8 @@ def generate_csv_report(clients_dict):
     lines = ['Клиент;Выручка;Статус']
     for client, total in clients_dict.items():
         status = 'VIP' if total > 30000 else 'Обычный'
-        lines.append(f'{client};{total:.2f};{status}')
+        formatted_total = f'{total:.2f}'.replace('.', ',')
+        lines.append(f'{client};{formatted_total};{status}')
     return '\n'.join(lines).encode('cp1251')
 
       
