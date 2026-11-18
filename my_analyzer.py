@@ -17,6 +17,14 @@ def analyze_csv(lines):
         'total_revenue': total_revenue,
         'average_revenue': average_revenue,
         'clients': client_totals
-    }     
+    }  
+
+def generate_csv_report(clients_dict):
+    lines = ['Клиент;Выручка;Статус']
+    for client, total in clients_dict.items():
+        status = 'VIP' if total > 30000 else 'Обычный'
+        lines.append(f'{client};{total:.2f};{status}')
+    return '\n'.join(lines).encode('cp1251')
+
       
 
